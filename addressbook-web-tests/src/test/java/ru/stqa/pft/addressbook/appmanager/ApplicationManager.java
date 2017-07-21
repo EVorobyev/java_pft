@@ -11,8 +11,11 @@ import java.util.concurrent.TimeUnit;
  * Created by EOnegin on 21.07.2017.
  */
 public class ApplicationManager {
+  FirefoxDriver wd;
 
-  private final GroupHelper groupHelper = new GroupHelper();
+  private SessionHelper sessionHelper;
+  private NavigationHelper navigationHelper;
+  private GroupHelper groupHelper;
 
   public static boolean isAlertPresent(FirefoxDriver wd) {
     try {
@@ -24,31 +27,24 @@ public class ApplicationManager {
   }
 
   public void init() {
-    groupHelper.wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
-    groupHelper.wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-    groupHelper.wd.get("http://localhost/addressbook/group.php");
-    login("admin", "secret");
-  }
-
-  private void login(String username, String password) {
-    groupHelper.wd.findElement(By.name("user")).click();
-    groupHelper.wd.findElement(By.name("user")).clear();
-    groupHelper.wd.findElement(By.name("user")).sendKeys(username);
-    groupHelper.wd.findElement(By.name("pass")).click();
-    groupHelper.wd.findElement(By.name("pass")).clear();
-    groupHelper.wd.findElement(By.name("pass")).sendKeys(password);
-    groupHelper.wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
-  }
-
-  public void gotoGroupPage() {
-    groupHelper.wd.findElement(By.linkText("groups")).click();
+    wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
+    wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
+    wd.get("http://localhost/addressbook/group.php");
+    groupHelper = new GroupHelper(wd);
+    navigationHelper = new NavigationHelper(wd);
+    sessionHelper = new SessionHelper(wd);
+    sessionHelper.login("admin", "secret");
   }
 
   public void stop() {
-    groupHelper.wd.quit();
+    wd.quit();
   }
 
   public GroupHelper getGroupHelper() {
     return groupHelper;
+  }
+
+  public NavigationHelper getNavigationHelper() {
+    return navigationHelper;
   }
 }
