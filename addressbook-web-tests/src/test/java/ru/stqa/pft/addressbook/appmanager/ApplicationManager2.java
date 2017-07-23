@@ -1,9 +1,10 @@
-package ru.stqa.pft.addressbook;
+package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
+import ru.stqa.pft.addressbook.model.ContactData;
 
 import java.util.concurrent.TimeUnit;
 
@@ -22,7 +23,7 @@ public class ApplicationManager2 {
     }
   }
 
-  protected void init() {
+  public void init() {
     wd = new FirefoxDriver(new FirefoxOptions().setLegacy(true));
     wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
     wd.get("http://localhost/addressbook/");
@@ -39,15 +40,15 @@ public class ApplicationManager2 {
     wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
   }
 
-  protected void goHome() {
+  public void goHome() {
     wd.findElement(By.linkText("home")).click();
   }
 
-  protected void submitContactCreation() {
+  public void submitContactCreation() {
     wd.findElement(By.name("submit")).click();
   }
 
-  protected void fillContactForm(ContactData contactData) {
+  public void fillContactForm(ContactData contactData) {
     wd.findElement(By.name("firstname")).click();
     wd.findElement(By.name("firstname")).clear();
     wd.findElement(By.name("firstname")).sendKeys(contactData.getFirstname());
@@ -74,23 +75,23 @@ public class ApplicationManager2 {
     wd.findElement(By.name("email")).sendKeys(contactData.getEmail());
   }
 
-  protected void initContactCreation() {
+  public void initContactCreation() {
     wd.findElement(By.linkText("add new")).click();
   }
 
-  protected void stop() {
+  public void stop() {
     wd.quit();
   }
 
-  protected void closeDialogWindow() {
+  public void closeDialogWindow() {
       wd.switchTo().alert().accept();
   }
 
-  protected void deleteSelectedContacts() {
+  public void deleteSelectedContacts() {
       wd.findElement(By.xpath("//div[@id='content']/form[2]/div[2]/input")).click();
   }
 
-  protected void selectContact() {
+  public void selectContact() {
       wd.findElement(By.name("selected[]")).click();
   }
 }
