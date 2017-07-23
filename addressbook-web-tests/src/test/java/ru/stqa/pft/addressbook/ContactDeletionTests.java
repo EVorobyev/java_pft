@@ -1,3 +1,5 @@
+package ru.stqa.pft.addressbook;
+
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
@@ -23,7 +25,7 @@ public class ContactDeletionTests {
     }
     
     @Test
-    public void ContactDeletionTests() {
+    public void testContactDeletion() {
         wd.get("http://localhost/addressbook/");
         wd.findElement(By.id("LoginForm")).click();
         wd.findElement(By.name("user")).click();
