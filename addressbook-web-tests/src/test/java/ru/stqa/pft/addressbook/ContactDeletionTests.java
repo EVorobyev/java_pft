@@ -6,10 +6,10 @@ public class ContactDeletionTests extends TestBase2 {
 
     @Test
     public void testContactDeletion() {
-        selectContact();
-        deleteSelectedContacts();
-        closeDialogWindow();
-        goHome();
+        app2.selectContact();
+        app2.deleteSelectedContacts();
+        app2.closeDialogWindow();
+        app2.goHome();
     }
 
 }
