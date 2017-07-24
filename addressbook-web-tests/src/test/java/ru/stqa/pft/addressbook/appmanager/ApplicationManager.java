@@ -11,7 +11,6 @@ import java.util.concurrent.TimeUnit;
 public class ApplicationManager {
   FirefoxDriver wd;
 
-  private ContactSessionHelper contactSessionHelper;
   private ContactHelper contactHelper;
   private SessionHelper sessionHelper;
   private NavigationHelper navigationHelper;
@@ -25,7 +24,6 @@ public class ApplicationManager {
     navigationHelper = new NavigationHelper(wd);
     sessionHelper = new SessionHelper(wd);
     contactHelper = new ContactHelper(wd);
-    contactSessionHelper = new ContactSessionHelper(wd);
     sessionHelper.login("admin", "secret");
   }
 
