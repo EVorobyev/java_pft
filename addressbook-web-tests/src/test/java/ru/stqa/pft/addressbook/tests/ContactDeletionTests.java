@@ -2,14 +2,14 @@ package ru.stqa.pft.addressbook.tests;
 
 import org.testng.annotations.Test;
 
-public class ContactDeletionTests extends TestBase2 {
+public class ContactDeletionTests extends TestBase {
 
     @Test
     public void testContactDeletion() {
-        app2.getContactHelper().selectContact();
-        app2.getContactHelper().deleteSelectedContacts();
-        app2.getContactHelper().closeDialogWindow();
-        app2.getContactNavigationHelper().goHome();
+        app.getContactHelper().selectContact();
+        app.getContactHelper().deleteSelectedContacts();
+        app.getContactHelper().closeDialogWindow();
+        app.getContactNavigationHelper().goHome();
     }
 
 }
