@@ -11,6 +11,18 @@ public class ContactData {
   private final String mobile;
   private final String email;
 
+  public ContactData(String firstname, String middlename, String lastname, String nickname, String title, String company, String mobile, String email) {
+    this.id = null;
+    this.firstname = firstname;
+    this.middlename = middlename;
+    this.lastname = lastname;
+    this.nickname = nickname;
+    this.title = title;
+    this.company = company;
+    this.mobile = mobile;
+    this.email = email;
+  }
+
   public ContactData(String id, String firstname, String middlename, String lastname, String nickname, String title, String company, String mobile, String email) {
     this.id = id;
     this.firstname = firstname;
