@@ -49,7 +49,10 @@ public class ContactHelper extends HelperBase {
     wd.findElements(By.name("selected[]")).get(index).click();
   }
 
-  public void initContactModification() { click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img")); }
+  public void initContactModification(int index) {
+    WebElement row = wd.findElements(By.name("entry")).get(index);
+    row.findElement(By.xpath("./td[8]/a")).click();
+  }
 
   public void submitContactModification() { click(By.name("update")); }
 
