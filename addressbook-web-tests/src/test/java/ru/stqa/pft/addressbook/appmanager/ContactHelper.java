@@ -48,10 +48,26 @@ public class ContactHelper extends HelperBase {
     wd.findElement(By.cssSelector("input[value='" +id+ "']")).click();
   }
 
+  public ContactData infoFromEditForm(ContactData contact) {
+    initContactModificationById(contact.getId());
+    String firstname = wd.findElement(By.name("firstname")).getAttribute("value");
+    String lastname = wd.findElement(By.name("lastname")).getAttribute("value");
+    String home = wd.findElement(By.name("home")).getAttribute("value");
+    String mobile = wd.findElement(By.name("mobile")).getAttribute("value");
+    String work = wd.findElement(By.name("work")).getAttribute("value");
+    wd.navigate().back();
+    return new ContactData().withId(contact.getId()).withFirstname(firstname).withLastname(lastname)
+            .withHomePhone(home).withMobile(mobile).withWorkPhone(work);
+  }
+
   public void initContactModificationById(int id) {
     WebElement checkbox = wd.findElement(By.cssSelector("input[value='" +id+ "']"));
     checkbox.findElement(By.xpath("./../../td[8]/a/img")).click();
   }
+
+  // wd.findElement(By.xpath(String.format
+  // wd.findElement(By.xpath(String.format
+  // wd.findElement(By.cssSelector(String.format
 
   public void submitContactModification() {
     click(By.name("update"));
