@@ -1,6 +1,5 @@
 package ru.stqa.pft.addressbook.tests;
 
-import org.hamcrest.CoreMatchers;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
@@ -42,6 +41,6 @@ public class ContactEmailTests extends TestBase{
   }
 
   public static String cleaned(String email)  {
-    return email.replaceAll("\\", "");
+    return email.replaceAll("\\\\", "");
   }
 }
