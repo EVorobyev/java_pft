@@ -1,7 +1,6 @@
 package ru.stqa.pft.addressbook.tests;
 
-import org.hamcrest.CoreMatchers;
-import org.hamcrest.MatcherAssert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 
@@ -15,6 +14,15 @@ import static org.hamcrest.MatcherAssert.assertThat;
  * Created by EOnegin on 13.08.2017.
  */
 public class ContactPhoneTests extends TestBase {
+
+  @BeforeMethod
+  public void ensurePreconditions() {
+    app.goTo().home();
+    if (app.contact().all().size() == 0) {
+      app.contact().create(new ContactData().withFirstname("testfirstname1").withMiddlename("testmiddlename1").withLastname("testlastname1")
+              .withNickname("testnickname1").withTitle("testtitle1").withCompany("testcompany1").withMobile("testmobile1").withEmail("testemail1"));
+    }
+  }
 
   @Test
   public void testContactPhones() {
