@@ -1,0 +1,44 @@
+<list>
+  <contact>
+    <firstname>testfirstname
+0</firstname>
+    <middlename>testmiddlename
+0</middlename>
+    <lastname>testlastname
+0</lastname>
+    <nickname>testnickname
+0</nickname>
+    <title>testtitle
+0</title>
+    <company>testcompany
+0</company>
+  </contact>
+  <contact>
+    <firstname>testfirstname
+1</firstname>
+    <middlename>testmiddlename
+1</middlename>
+    <lastname>testlastname
+1</lastname>
+    <nickname>testnickname
+1</nickname>
+    <title>testtitle
+1</title>
+    <company>testcompany
+1</company>
+  </contact>
+  <contact>
+    <firstname>testfirstname
+2</firstname>
+    <middlename>testmiddlename
+2</middlename>
+    <lastname>testlastname
+2</lastname>
+    <nickname>testnickname
+2</nickname>
+    <title>testtitle
+2</title>
+    <company>testcompany
+2</company>
+  </contact>
+</list>
