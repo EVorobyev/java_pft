@@ -5,7 +5,7 @@ import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
 
-import java.io.File;
+import java.io.*;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -16,16 +16,16 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class ContactCreationTests extends TestBase {
 
   @DataProvider
-  public Iterator<Object[]> validContacts() {
+  public Iterator<Object[]> validContacts() throws IOException {
     List<Object[]> list = new ArrayList<Object[]>();
-    list.add(new Object[] {new ContactData().withFirstname("testfirstname 1").withMiddlename("testmiddlename 1").withLastname("testlastname 1")
-            .withNickname("testnickname 1").withTitle("testtitle 1").withCompany("testcompany 1")});
-    list.add(new Object[] {new ContactData().withFirstname("testfirstname 2").withMiddlename("testmiddlename 2").withLastname("testlastname 2")
-            .withNickname("testnickname 2").withTitle("testtitle 2").withCompany("testcompany 2")});
-    list.add(new Object[] {new ContactData().withFirstname("testfirstname 3").withMiddlename("testmiddlename 3").withLastname("testlastname 3")
-            .withNickname("testnickname 3").withTitle("testtitle 3").withCompany("testcompany 3")});
+    BufferedReader reader = new BufferedReader(new FileReader(new File("src/test/resources/contacts.csv")));
+    String line = reader.readLine();
+    while (line != null) {
+      String[] split = line.split(";");
+      list.add(new Object[] {new ContactData().withFirstname(split[0]).withMiddlename(split[1]).withLastname(split[2]).withNickname(split[3]).withTitle(split[4]).withCompany(split[5])});
+      line = reader.readLine();
+    }
     return list.iterator();
-
   }
 
   @Test(dataProvider = "validContacts")
