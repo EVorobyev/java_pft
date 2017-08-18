@@ -1,26 +1,26 @@
 [
   {
-    "firstname": "testfirstname\n0",
-    "middlename": "testmiddlename\n0",
-    "lastname": "testlastname\n0",
-    "nickname": "testnickname\n0",
-    "title": "testtitle\n0",
-    "company": "testcompany\n0"
+    "firstname": "testfirstname 0",
+    "middlename": "testmiddlename 0",
+    "lastname": "testlastname 0",
+    "nickname": "testnickname 0",
+    "title": "testtitle 0",
+    "company": "testcompany 0"
   },
   {
-    "firstname": "testfirstname\n1",
-    "middlename": "testmiddlename\n1",
-    "lastname": "testlastname\n1",
-    "nickname": "testnickname\n1",
-    "title": "testtitle\n1",
-    "company": "testcompany\n1"
+    "firstname": "testfirstname 1",
+    "middlename": "testmiddlename 1",
+    "lastname": "testlastname 1",
+    "nickname": "testnickname 1",
+    "title": "testtitle 1",
+    "company": "testcompany 1"
   },
   {
-    "firstname": "testfirstname\n2",
-    "middlename": "testmiddlename\n2",
-    "lastname": "testlastname\n2",
-    "nickname": "testnickname\n2",
-    "title": "testtitle\n2",
-    "company": "testcompany\n2"
+    "firstname": "testfirstname 2",
+    "middlename": "testmiddlename 2",
+    "lastname": "testlastname 2",
+    "nickname": "testnickname 2",
+    "title": "testtitle 2",
+    "company": "testcompany 2"
   }
 ]
