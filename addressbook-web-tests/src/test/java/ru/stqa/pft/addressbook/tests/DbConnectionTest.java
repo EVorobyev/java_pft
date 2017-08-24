@@ -18,6 +18,7 @@ public class DbConnectionTest {
     Connection conn = null;
     try {
       conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/addressbook?user=root&password=&serverTimezone=UTC");
+
       Statement st = conn.createStatement();
       ResultSet rs = st.executeQuery("select group_id, group_name, group_header, group_footer from group_list");
       Groups groups = new Groups();
@@ -27,22 +28,11 @@ public class DbConnectionTest {
       }
       rs.close();
       st.close();
-      conn.close();
 
       System.out.println(groups);
 
-    } catch (SQLException ex) {
-      // handle any errors
-      System.out.println("SQLException: " + ex.getMessage());
-      System.out.println("SQLState: " + ex.getSQLState());
-      System.out.println("VendorError: " + ex.getErrorCode());
-    }
-
-    Connection connc = null;
-    try {
-      connc = DriverManager.getConnection("jdbc:mysql://localhost:3306/addressbook?user=root&password=&serverTimezone=UTC");
-      Statement st = connc.createStatement();
-      ResultSet rsc = st.executeQuery("select id, firstname, middlename, lastname, nickname, title, company from addressbook");
+      Statement stc = conn.createStatement();
+      ResultSet rsc = stc.executeQuery("select id, firstname, middlename, lastname, nickname, title, company from addressbook");
       Contacts contacts = new Contacts();
       while (rsc.next()) {
         contacts.add(new ContactData().withId(rsc.getInt("id")).withFirstname(rsc.getString("firstname"))
@@ -51,9 +41,10 @@ public class DbConnectionTest {
       }
       rsc.close();
       st.close();
-      connc.close();
 
       System.out.println(contacts);
+
+      conn.close();
 
     } catch (SQLException ex) {
       // handle any errors
