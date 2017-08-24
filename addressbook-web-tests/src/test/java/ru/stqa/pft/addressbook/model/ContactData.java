@@ -3,43 +3,99 @@ package ru.stqa.pft.addressbook.model;
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.File;
 
 @XStreamAlias("contact")
+@Entity
+@Table(name = "addressbook")
 public class ContactData {
+
+
   @XStreamOmitField
+  @Id
+  @Column(name = "id")
   private int id = Integer.MAX_VALUE;
+
   @Expose
+  @Column(name = "firstname")
   private String firstname;
+
   @Expose
+  @Column(name = "middlename")
   private String middlename;
+
   @Expose
+  @Column(name = "lastname")
   private String lastname;
+
   @Expose
+  @Column(name = "nickname")
   private String nickname;
+
   @Expose
+  @Column(name = "title")
   private String title;
+
   @Expose
+  @Column(name = "company")
   private String company;
+
+  @Transient
   private String address;
+
+  @Transient
   private String mobile;
+
+  @Transient
   private String homephone;
+
+  @Transient
   private String workphone;
+
+  @Transient
   private String allPhones;
+
+  @Transient
   private String email;
+
+  @Transient
   private String email2;
+
+  @Transient
   private String email3;
+
+  @Transient
   private String allEmails;
-  private File photo;
+
+  @Column(name = "photo")
+  @Type(type = "text")
+  private String photo;
+
+  @Transient
   private String group;
 
+
+
+  @Override
+  public String toString() {
+    return "ContactData{" +
+            "id=" + id +
+            ", firstname='" + firstname + '\'' +
+            ", lastname='" + lastname + '\'' +
+            '}';
+  }
+
+
+
   public File getPhoto() {
-    return photo;
+    return new File(photo);
   }
 
   public ContactData withPhoto(File photo) {
-    this.photo = photo;
+    this.photo = photo.getPath();
     return this;
   }
 
@@ -194,15 +250,6 @@ public class ContactData {
 
   public String getGroup() {
     return group;
-  }
-
-  @Override
-  public String toString() {
-    return "ContactData{" +
-            "id='" + id + '\'' +
-            ", firstname='" + firstname + '\'' +
-            ", lastname='" + lastname + '\'' +
-            '}';
   }
 
   @Override
