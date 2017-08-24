@@ -32,6 +32,7 @@ public class ContactData {
   private String email3;
   private String allEmails;
   private File photo;
+  private String group;
 
   public File getPhoto() {
     return photo;
@@ -41,7 +42,6 @@ public class ContactData {
     this.photo = photo;
     return this;
   }
-
 
   public ContactData withId(int id) {
     this.id = id;
@@ -123,6 +123,11 @@ public class ContactData {
     return this;
   }
 
+  public ContactData withGroup(String group) {
+    this.group = group;
+    return this;
+  }
+
   public int getId() {
     return id;
   }
@@ -187,6 +192,9 @@ public class ContactData {
     return allEmails;
   }
 
+  public String getGroup() {
+    return group;
+  }
 
   @Override
   public String toString() {
