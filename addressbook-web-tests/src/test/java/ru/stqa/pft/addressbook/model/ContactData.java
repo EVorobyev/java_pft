@@ -47,7 +47,6 @@ public class ContactData {
   @Column(name = "address")
   private String address;
 
-  @Transient
   @Column(name = "mobile")
   @Type(type = "text")
   private String mobile;
@@ -65,7 +64,6 @@ public class ContactData {
   @Transient
   private String allPhones;
 
-  @Transient
   @Column(name = "email")
   @Type(type = "text")
   private String email;
@@ -203,7 +201,6 @@ public class ContactData {
     if (email2 != null ? !email2.equals(that.email2) : that.email2 != null) return false;
     if (email3 != null ? !email3.equals(that.email3) : that.email3 != null) return false;
     if (allEmails != null ? !allEmails.equals(that.allEmails) : that.allEmails != null) return false;
-    if (photo != null ? !photo.equals(that.photo) : that.photo != null) return false;
     return group != null ? group.equals(that.group) : that.group == null;
   }
 
@@ -225,7 +222,6 @@ public class ContactData {
     result = 31 * result + (email2 != null ? email2.hashCode() : 0);
     result = 31 * result + (email3 != null ? email3.hashCode() : 0);
     result = 31 * result + (allEmails != null ? allEmails.hashCode() : 0);
-    result = 31 * result + (photo != null ? photo.hashCode() : 0);
     result = 31 * result + (group != null ? group.hashCode() : 0);
     return result;
   }
