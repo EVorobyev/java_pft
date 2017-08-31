@@ -26,12 +26,12 @@ public class GroupData {
   @Expose
   @Column(name = "group_header")
   @Type(type = "text")
-  private String header;
+  public String header;
 
   @Expose
   @Column(name = "group_footer")
   @Type(type = "text")
-  private String footer;
+  public String footer;
 
   public int getId() {
     return id;

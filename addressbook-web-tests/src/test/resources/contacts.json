@@ -5,7 +5,9 @@
     "lastname": "testlastname 0",
     "nickname": "testnickname 0",
     "title": "testtitle 0",
-    "company": "testcompany 0"
+    "company": "testcompany 0",
+    "mobile": "",
+    "email": ""
   },
   {
     "firstname": "testfirstname 1",
@@ -13,7 +15,9 @@
     "lastname": "testlastname 1",
     "nickname": "testnickname 1",
     "title": "testtitle 1",
-    "company": "testcompany 1"
+    "company": "testcompany 1",
+    "mobile": "",
+    "email": ""
   },
   {
     "firstname": "testfirstname 2",
@@ -21,6 +25,8 @@
     "lastname": "testlastname 2",
     "nickname": "testnickname 2",
     "title": "testtitle 2",
-    "company": "testcompany 2"
+    "company": "testcompany 2",
+    "mobile": "",
+    "email": ""
   }
 ]

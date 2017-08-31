@@ -31,6 +31,10 @@ public class DbHelper {
     Session session = sessionFactory.openSession();
     session.beginTransaction();
     List<GroupData> result = session.createQuery("from GroupData").list();
+    for (GroupData group : result) {
+      group.header = group.header.replaceAll("\r\n", "\n");
+      group.footer = group.footer.replaceAll("\r\n", "\n");
+    }
     session.getTransaction().commit();
     session.close();
     return new Groups(result);
