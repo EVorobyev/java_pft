@@ -91,17 +91,6 @@ public class ContactData {
   private String group;
 
 
-
-  @Override
-  public String toString() {
-    return "ContactData{" +
-            "id=" + id +
-            ", firstname='" + firstname + '\'' +
-            ", lastname='" + lastname + '\'' +
-            '}';
-  }
-
-
   public File getPhoto() {
     if (photo == null) {
       return null;
@@ -194,15 +183,12 @@ public class ContactData {
     if (nickname != null ? !nickname.equals(that.nickname) : that.nickname != null) return false;
     if (title != null ? !title.equals(that.title) : that.title != null) return false;
     if (company != null ? !company.equals(that.company) : that.company != null) return false;
-    if (address != null ? !address.equals(that.address) : that.address != null) return false;
     if (mobile != null ? !mobile.equals(that.mobile) : that.mobile != null) return false;
     if (homephone != null ? !homephone.equals(that.homephone) : that.homephone != null) return false;
     if (workphone != null ? !workphone.equals(that.workphone) : that.workphone != null) return false;
-    if (allPhones != null ? !allPhones.equals(that.allPhones) : that.allPhones != null) return false;
     if (email != null ? !email.equals(that.email) : that.email != null) return false;
     if (email2 != null ? !email2.equals(that.email2) : that.email2 != null) return false;
     if (email3 != null ? !email3.equals(that.email3) : that.email3 != null) return false;
-    if (allEmails != null ? !allEmails.equals(that.allEmails) : that.allEmails != null) return false;
     return group != null ? group.equals(that.group) : that.group == null;
   }
 
@@ -215,17 +201,38 @@ public class ContactData {
     result = 31 * result + (nickname != null ? nickname.hashCode() : 0);
     result = 31 * result + (title != null ? title.hashCode() : 0);
     result = 31 * result + (company != null ? company.hashCode() : 0);
-    result = 31 * result + (address != null ? address.hashCode() : 0);
     result = 31 * result + (mobile != null ? mobile.hashCode() : 0);
     result = 31 * result + (homephone != null ? homephone.hashCode() : 0);
     result = 31 * result + (workphone != null ? workphone.hashCode() : 0);
-    result = 31 * result + (allPhones != null ? allPhones.hashCode() : 0);
     result = 31 * result + (email != null ? email.hashCode() : 0);
     result = 31 * result + (email2 != null ? email2.hashCode() : 0);
     result = 31 * result + (email3 != null ? email3.hashCode() : 0);
-    result = 31 * result + (allEmails != null ? allEmails.hashCode() : 0);
     result = 31 * result + (group != null ? group.hashCode() : 0);
     return result;
+  }
+
+  @Override
+  public String toString() {
+    return "ContactData{" +
+            "id=" + id +
+            ", firstname='" + firstname + '\'' +
+            ", middlename='" + middlename + '\'' +
+            ", lastname='" + lastname + '\'' +
+            ", nickname='" + nickname + '\'' +
+            ", title='" + title + '\'' +
+            ", company='" + company + '\'' +
+            ", address='" + address + '\'' +
+            ", mobile='" + mobile + '\'' +
+            ", homephone='" + homephone + '\'' +
+            ", workphone='" + workphone + '\'' +
+            ", allPhones='" + allPhones + '\'' +
+            ", email='" + email + '\'' +
+            ", email2='" + email2 + '\'' +
+            ", email3='" + email3 + '\'' +
+            ", allEmails='" + allEmails + '\'' +
+            ", photo='" + photo + '\'' +
+            ", group='" + group + '\'' +
+            '}';
   }
 
   public ContactData withEmail2(String email2) {
