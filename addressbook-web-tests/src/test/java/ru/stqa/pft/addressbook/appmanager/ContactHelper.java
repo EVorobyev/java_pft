@@ -141,4 +141,41 @@ public class ContactHelper extends HelperBase {
     return new Contacts(contactCache);
   }
 
+  public void selectContact(int index) {
+    wd.findElements(By.name("selected[]")).get(index).click();
+  }
+
+  private void selectGroup(int index) {
+    wd.findElement(By.cssSelector("select[name='to_group'] option[value='"+index+"'")).click();
+  }
+
+  public void returnToMainPage() {
+    click(By.partialLinkText("group page"));
+  }
+
+  public void addToGroup(int beforeGroups) {
+    selectGroup(beforeGroups);
+    click(By.name("add"));
+  }
+
+  public void selectGroupList(int index) {
+    wd.findElement(By.cssSelector("select[name='group'] option[value='"+index+"'")).click();
+  }
+
+  public void deleteContactFromGroup(Contacts before) {
+    selectContact(before.size() - 1);
+    click(By.name("remove"));
+  }
+
+  public void removeContactFromGroup(Contacts before, int beforeGroups) {
+    selectGroupList(beforeGroups);
+    deleteContactFromGroup(before);
+    returnToMainPage();
+  }
+
+  public void addContactToGroup(Contacts before, int beforeGroups) {
+    selectContact(before.size() - 1);
+    addToGroup(beforeGroups);
+    returnToMainPage();
+  }
 }
