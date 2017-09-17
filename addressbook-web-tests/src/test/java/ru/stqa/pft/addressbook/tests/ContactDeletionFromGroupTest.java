@@ -19,21 +19,21 @@ public class ContactDeletionFromGroupTest extends TestBase {
   @BeforeMethod
   public void ensurePreconditions() {
 
-    if(app.db().groups().size()==0){
+    if(app.db().groups().size() == 0){
       app.goTo().groupPage();
       app.group().create(new GroupData().withName("test1"));
       app.goTo().home();
     }
 
-    if(app.db().contacts().size()==0){
+    if(app.db().contacts().size() == 0){
       app.goTo().home();
       app.contact().create(new ContactData().withFirstname("testfirstname2").withMiddlename("testmiddlename1").withLastname("testlastname1")
               .withNickname("testnickname1").withTitle("testtitle1").withCompany("testcompany1").withMobile("testmobile1").withEmail("testemail1"));
     }
 
     int beforeCount = app.db().groups().iterator().next().getContacts().size();
-    GroupData groupAdd=app.db().groups().iterator().next();
-    if(beforeCount==0){
+    GroupData groupAdd = app.db().groups().iterator().next();
+    if(beforeCount == 0){
       Contacts before =app.db().contacts();
       app.contact().addContactToGroup(before, groupAdd.getId());
 
