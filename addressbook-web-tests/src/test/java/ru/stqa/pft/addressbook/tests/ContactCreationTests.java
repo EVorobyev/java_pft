@@ -6,6 +6,7 @@ import com.thoughtworks.xstream.XStream;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.testng.annotations.DataProvider;
+import org.testng.annotations.NoInjection;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
@@ -53,7 +54,7 @@ public class ContactCreationTests extends TestBase {
   }
 
 
-  @Test(dataProvider = "validContactsFromJson")
+  @Test(enabled = false, dataProvider = "validContactsFromJson")
   public void testContactCreation(ContactData contact) {
     app.goTo().home();
     Contacts before = app.db().contacts();
@@ -90,10 +91,10 @@ public class ContactCreationTests extends TestBase {
     verifyContactListInUI();
   }
 
-  @Test(enabled = false, dataProvider = "validContactsFromJson")
-  public void testContactCreationAndAddToGroup(ContactData contact) {
+  @Test
+  public void testContactCreationAndAddToGroup() {
     Groups groups = app.db().groups();
-    ContactData newContact = new ContactData().withFirstname("testfirstname2'").withMiddlename("testmiddlename1").withLastname("testlastname1")
+    ContactData newContact = new ContactData().withFirstname("testfirstname2").withMiddlename("testmiddlename1").withLastname("testlastname1")
             .withNickname("testnickname1").withTitle("testtitle1").withCompany("testcompany1").withMobile("testmobile1").withEmail("testemail1").inGroup(groups.iterator().next());
     app.goTo().home();
     Contacts before = app.db().contacts();
@@ -104,7 +105,7 @@ public class ContactCreationTests extends TestBase {
     assertThat(app.contact().count(), equalTo(before.size() + 1));
     Contacts after = app.db().contacts();
     assertThat(after, equalTo(
-            before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
+            before.withAdded(newContact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
     verifyContactListInUI();
   }
 }

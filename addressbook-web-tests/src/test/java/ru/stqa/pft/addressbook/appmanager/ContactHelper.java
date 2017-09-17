@@ -1,9 +1,9 @@
 package ru.stqa.pft.addressbook.appmanager;
 
-import org.hibernate.sql.Select;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
@@ -91,14 +91,14 @@ public class ContactHelper extends HelperBase {
 
   public void create(ContactData contact) {
     initContactCreation();
-    fillContactForm(contact);
+    fillContactForm(contact, true);
     submitContactCreation();
     contactCache = null;
   }
 
   public void modify(ContactData contact) {
     initContactModificationById(contact.getId());
-    fillContactForm(contact);
+    fillContactForm(contact, true);
     submitContactModification();
     contactCache = null;
   }
