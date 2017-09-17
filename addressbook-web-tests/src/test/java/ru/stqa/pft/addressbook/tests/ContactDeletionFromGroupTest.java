@@ -30,7 +30,7 @@ public class ContactDeletionFromGroupTest extends TestBase {
       app.contact().create(new ContactData().withFirstname("testfirstname2").withMiddlename("testmiddlename1").withLastname("testlastname1")
               .withNickname("testnickname1").withTitle("testtitle1").withCompany("testcompany1").withMobile("testmobile1").withEmail("testemail1"));
     }
-    
+
   }
 
   @Test
