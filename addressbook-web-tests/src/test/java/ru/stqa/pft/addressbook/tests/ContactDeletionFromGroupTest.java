@@ -31,6 +31,13 @@ public class ContactDeletionFromGroupTest extends TestBase {
               .withNickname("testnickname1").withTitle("testtitle1").withCompany("testcompany1").withMobile("testmobile1").withEmail("testemail1"));
     }
 
+    int beforeCount = app.db().groups().iterator().next().getContacts().size();
+    GroupData groupAdd=app.db().groups().iterator().next();
+    if(beforeCount==0){
+      Contacts before =app.db().contacts();
+      app.contact().addContactToGroup(before, groupAdd.getId());
+
+    }
   }
 
   @Test
