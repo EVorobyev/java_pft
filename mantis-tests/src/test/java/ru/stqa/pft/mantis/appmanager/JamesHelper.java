@@ -32,7 +32,7 @@ public class JamesHelper {
     mailSession= Session.getDefaultInstance(System.getProperties());
   }
 
-  public boolean doesUserexist(String name) {
+  public boolean doesUserExist(String name) {
     initTelnetSession();
     write("verify " + name);
     String result = readUntil("exist");

@@ -19,12 +19,13 @@ import java.util.concurrent.TimeUnit;
 public class ApplicationManager {
   private final Properties properties;
   private WebDriver wd;
-
   private String browser;
   private RegistrationHelper registrationHelper;
   private FtpHelper ftp;
   private MailHelper mailHelper;
   private JamesHelper jamesHelper;
+  private SessionHelper sessionHelper;
+  private ResetPasswordHelper resetPasswordHelper;
 
   public ApplicationManager(String browser) {
     this.browser = browser;
@@ -55,6 +56,20 @@ public class ApplicationManager {
       registrationHelper = new RegistrationHelper(this);
     }
     return  registrationHelper;
+  }
+
+  public SessionHelper session() {
+    if(sessionHelper==null){
+      sessionHelper=new SessionHelper(this);
+    }
+    return sessionHelper;
+  }
+
+  public ResetPasswordHelper resetPassword() {
+    if(resetPasswordHelper == null){
+      resetPasswordHelper = new ResetPasswordHelper(this);
+    }
+    return resetPasswordHelper;
   }
 
   public FtpHelper ftp() {
