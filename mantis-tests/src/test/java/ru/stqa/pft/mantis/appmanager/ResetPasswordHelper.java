@@ -25,7 +25,9 @@ public class ResetPasswordHelper extends HelperBase {
   }
 
   public void chooseUser(){
-    WebElement webElement = wd.findElement(By.linkText("user%s"));
+
+    WebElement webElement = wd.findElement(By.cssSelector("a[href*='manage_user_edit_page.php']:not([href='manage_user_edit_page.php?user_id=1']"));
+    //WebElement webElement = wd.findElement(By.cssSelector("a[href='manage_user_edit_page.php?user_id=2']"));
     webElement.click();
   }
   public void resetPassword(){

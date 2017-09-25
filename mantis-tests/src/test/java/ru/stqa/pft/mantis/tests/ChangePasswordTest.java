@@ -18,7 +18,7 @@ import static org.testng.Assert.assertTrue;
  */
 public class ChangePasswordTest extends TestBase {
 
-//  @BeforeMethod
+  @BeforeMethod
   public void startMailServer() {
     app.mail().start();
   }
@@ -34,7 +34,7 @@ public class ChangePasswordTest extends TestBase {
     String user = app.resetPassword().getUserName();
     String email = app.resetPassword().getMail();
     app.resetPassword().resetPassword();
-    List<MailMessage> mailMessages = app.mail().waitForMail(1, 10000);
+    List<MailMessage> mailMessages = app.mail().waitForMail(1, 20000);
     String resetPasswordLink = findResetPasswordLink(mailMessages, email);
 
     app.resetPassword().changePasswordFinish(resetPasswordLink, newPassword);

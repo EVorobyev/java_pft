@@ -59,8 +59,8 @@ public class ApplicationManager {
   }
 
   public SessionHelper session() {
-    if(sessionHelper==null){
-      sessionHelper=new SessionHelper(this);
+    if(sessionHelper == null){
+      sessionHelper = new SessionHelper(this);
     }
     return sessionHelper;
   }
@@ -94,7 +94,7 @@ public class ApplicationManager {
     return wd;
   }
 
-  public  MailHelper mail() {
+  public MailHelper mail() {
     if (mailHelper == null) {
       mailHelper = new MailHelper(this);
     }
