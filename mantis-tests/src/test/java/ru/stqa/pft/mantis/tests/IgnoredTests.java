@@ -11,8 +11,7 @@ import java.rmi.RemoteException;
  */
 public class IgnoredTests extends TestBase{
 
-  private int id=1;
-
+  private int id = 1;
 
   @Test
   public void testIgnored() throws RemoteException, ServiceException, MalformedURLException {
